@@ -13,7 +13,7 @@ router.get('/search', function (req, res) {
 
     // build url based nytimes api
     var endpoint="/svc/search/v2/articlesearch.json"
-    var param = "?api-key="+key+"&q="+query+"&sort="+sort+"&page="+page
+    var param = "?api-key="+key+"&fq="+query+"&sort="+sort+"&page="+page
     console.log(url+endpoint+param)
 
     axios.get(url+endpoint+param).then((response) => {
