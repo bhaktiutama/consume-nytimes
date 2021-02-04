@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <main class="container">
+        <div class="bg-light p-5 rounded">
+          <h1>This is great</h1>
+          <p class="lead">Welcome to New York Times.</p>
+          <p></p>
+          <form class="row gx-3 align-items-center" action="/" method="GET">
+            <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingInput">Search</label>
+                <input type="text" class="form-control" id="autoSizingInput" placeholder="Search" name="query">
+            </div>
+            <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingSelect">Order By</label>
+                <select class="form-select" id="autoSizingSelect" name="sort">
+                    <option value="newest" selected>Newest</option>
+                    <option value="oldest">Oldest</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        </div>
+    </main>
+
+    <main class="container">
+        <div class="bg-white p-5 rounded">   
+
+        <% result.forEach(function(result) { %>        
+            <article class="blog-post">
+                <h2 class="blog-post-title"><%= result.headline %></h2>
+                <p class="blog-post-meta"><%= result.pub_date %> by <%= result.source %></p>
+                <p><%= result.snippet %></p>
+                <p>
+                    <a class="btn" href=<%= result.web_url%>>View details »</a>
+                </p>
+                <hr>
+            </article>
+        <% }) %>
+        </div>
+
+        <!-- <div>
+			<nav>
+				<ul class="pagination">
+					<li class="page-item">
+						<a class="page-link" href="#">Previous</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">1</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">2</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">3</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">4</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">5</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">Next</a>
+					</li>
+				</ul>
+			</nav>
+        </div> -->
+        
+	</main>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
